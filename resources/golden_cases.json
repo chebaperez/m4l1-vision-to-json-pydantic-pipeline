@@ -1,0 +1,24 @@
+[
+  {
+    "case_id": "clean_01",
+    "image_path": "resources/form_clean.png",
+    "ground_truth": {
+      "full_name": "Juan Perez",
+      "id_number": "12345678",
+      "loan_amount": 5000.0,
+      "application_date": "2024-05-10",
+      "signature_present": true
+    }
+  },
+  {
+    "case_id": "handwritten_01",
+    "image_path": "resources/form_handwritten.png",
+    "ground_truth": {
+      "full_name": "Maria Garcia",
+      "id_number": "87654321",
+      "loan_amount": 12500.0,
+      "application_date": "2023-11-10",
+      "signature_present": true
+    }
+  }
+]
