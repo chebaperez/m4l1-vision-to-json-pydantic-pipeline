@@ -7,11 +7,11 @@ Un banco mediano busca automatizar la extracción de datos de formularios de sol
 
 ## Estructura del Proyecto
 - `extract_data_langchain.py`: Script principal que interactúa con la API de OpenAI (GPT-4o).
-- `resources/`: Carpeta con ejemplos de prueba y golden_cases.json:
+- `resources/`: Carpeta con ejemplos de prueba y test_cases.json:
   - `form_clean.png`: Formulario digital, claro y sin errores.
   - `form_handwritten.png`: Formulario con escritura a mano (OCR más complejo).
   - `form_blurred.png`: Formulario con manchas y texto borroso (Edge case).
-  - `golden_cases.json`: Dataset para pruebas de benchmark.
+  - `test_cases.json`: Dataset para pruebas de benchmark.
 
 ## Requisitos
 - Python 3.10+
@@ -46,9 +46,9 @@ Para procesar una imagen específica:
 python extract_data_langchain.py --image resources/form_handwritten.png
 ```
 
-Para ejecutar el benchmark utilizando el dataset de Golden Cases:
+Para ejecutar el benchmark utilizando el dataset de Test Cases:
 ```bash
-python extract_data_langchain.py --benchmark resources/golden_cases.json
+python extract_data_langchain.py --benchmark resources/test_cases.json
 ```
 
 --- 
