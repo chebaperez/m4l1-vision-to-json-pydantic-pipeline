@@ -7,7 +7,7 @@ from langchain_core.messages import HumanMessage
 
 
 load_dotenv()
-MODEL_NAME = "gpt-4o"
+MODEL_NAME = "gpt-4o-mini"
 
 
 def encode_image(image_path: str) -> str:

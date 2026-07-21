@@ -1,6 +1,7 @@
 [
   {
     "case_id": "clean_01",
+    "type": "golden",
     "image_path": "resources/form_clean.png",
     "ground_truth": {
       "full_name": "Juan Perez",
@@ -12,6 +13,7 @@
   },
   {
     "case_id": "handwritten_01",
+    "type": "standard",
     "image_path": "resources/form_handwritten.png",
     "ground_truth": {
       "full_name": "Maria Garcia",
@@ -19,6 +21,18 @@
       "loan_amount": 12500.0,
       "application_date": "2023-11-10",
       "signature_present": true
+    }
+  },
+  {
+    "case_id": "blurred_01",
+    "type": "boudary",
+    "image_path": "resources/form_blurred.png",
+    "ground_truth": {
+      "full_name": "Sarah J. Miller",
+      "id_number": "25483652",
+      "loan_amount": 21000.0,
+      "application_date": "1988-04-18",
+      "signature_present": false
     }
   }
 ]

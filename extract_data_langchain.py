@@ -98,20 +98,20 @@ def extraction_pipeline(image_path: str):
         return None
 
 
-def run_benchmark(golden_cases_path: str):
-    """Ejecuta un benchmark contra un dataset de prueba (Golden Cases)"""
-    if not os.path.exists(golden_cases_path):
-        print(f"\n❌ Error: El archivo de benchmark '{golden_cases_path}' no existe. Ejecución cancelada.")
+def run_benchmark(test_cases_path: str):
+    """Ejecuta un benchmark contra un dataset de prueba (Test Cases)"""
+    if not os.path.exists(test_cases_path):
+        print(f"\n❌ Error: El archivo de benchmark '{test_cases_path}' no existe. Ejecución cancelada.")
         return
 
-    with open(golden_cases_path, 'r') as f:
+    with open(test_cases_path, 'r') as f:
         cases = json.load(f)
     
     results = []
     print(f"\n📊 --- Iniciando Benchmark sobre {len(cases)} casos ---")
 
     for case in cases:
-        print(f"\n=== Evaluando caso: {case['case_id']} ===")
+        print(f"\n=== Evaluando caso: {case['case_id']} | {case['type']} ===")
         
         actual_output = extraction_pipeline(case['image_path'])
         expected_output = case['ground_truth']
@@ -148,7 +148,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--benchmark",
         type=str,
-        help="Ruta al archivo JSON de Golden Cases para ejecutar el benchmark"
+        help="Ruta al archivo JSON de Test Cases para ejecutar el benchmark"
     )
     args = parser.parse_args()
     
