@@ -21,18 +21,17 @@ def extraction_pipeline(image_path: str):
     """Ejecuta el pipeline de extracción de datos"""
     
     print(f"\n🚀 Iniciando extracción: {os.path.basename(image_path)}")
-    
-    # 1. Configurar el modelo con esquema de validación (Pydantic)
-    model = ChatOpenAI(model=MODEL_NAME)
-    
-    if not os.path.exists(image_path):
-        print(f"❌ Error: No se encuentra el archivo {image_path}")
-        return
 
-    # 2. Definir prompt y encodear imagen
+    # 1. Configurar el modelo
+    model = ChatOpenAI(model=MODEL_NAME)
     prompt = (
         "TODO: PROMPT"
     )
+
+    # 2. Encodear imagen
+    if not os.path.exists(image_path):
+        print(f"❌ Error: No se encuentra el archivo {image_path}")
+        return
     base64_image = encode_image(image_path)
 
     # 3. Crear mensaje multimodal (Prompt + Imagen)
@@ -54,7 +53,12 @@ def extraction_pipeline(image_path: str):
     try:
         parsed_data = model.invoke([message])
         print("✅ Extracción exitosa!")
-        print(parsed_data.model_dump_json(indent=2))
+        try:
+            print(f"✨ Model Output: {parsed_data.content}")  # type: ignore
+            print(type(parsed_data.content))  # type: ignore
+        except AttributeError:
+            print(f"⚙️ Structured Output: {parsed_data}")
+            print({type(parsed_data)})
     except Exception as e:
         print(f"❌ Error durante el procesamiento: {e}")
 
