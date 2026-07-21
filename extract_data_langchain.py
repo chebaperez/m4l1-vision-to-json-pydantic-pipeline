@@ -87,8 +87,8 @@ def extraction_pipeline(image_path: str):
     try:
         parsed_data = model.invoke([message])
         print("✅ Extracción exitosa!")
-        print(parsed_data.model_dump_json(indent=2))
-        return parsed_data.model_dump()
+        print(parsed_data.model_dump_json(indent=2)) # type: ignore
+        return parsed_data.model_dump() # type: ignore
     except ValidationError as e:
         print("❌ Error de validación (El modelo devolvió datos que no cumplen con el esquema):")
         print(e)
